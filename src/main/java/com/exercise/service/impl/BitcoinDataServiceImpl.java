@@ -47,7 +47,7 @@ public class BitcoinDataServiceImpl implements BitcoinDataService {
         try {
             JsonNode json = objectMapper.readTree(response.getBody());
             Iterator<String> fieldnames=json.get("bpi").fieldNames();
-            Map<Date,String> result=new HashMap<>();
+            Map<Date,String> result=new LinkedHashMap<>();
             while(fieldnames.hasNext()) {
                 String next=fieldnames.next();
                 result.put(DateUtil.fromBitcoinDate(next), json.get("bpi").get(next).toString());

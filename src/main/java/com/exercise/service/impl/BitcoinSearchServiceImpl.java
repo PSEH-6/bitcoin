@@ -19,8 +19,8 @@ public class BitcoinSearchServiceImpl implements BitcoinSearchService {
     private BitcoinDataService bitcoinDataService;
 
     @Autowired
-    public BitcoinSearchServiceImpl(BitcoinDataService bitcoinDataService){
-        this.bitcoinDataService=bitcoinDataService;
+    public BitcoinSearchServiceImpl(BitcoinDataService bitcoinDataService) {
+        this.bitcoinDataService = bitcoinDataService;
     }
 
     @Override
@@ -41,7 +41,8 @@ public class BitcoinSearchServiceImpl implements BitcoinSearchService {
                 maxstat = stat;
                 maxPrice = Double.parseDouble(stat.getPrice());
             }
-        maxstat.setPrice(maxstat.getPrice() + " (highest)");
+        if (maxstat != null)
+            maxstat.setPrice(maxstat.getPrice() + " (highest)");
     }
 
 
