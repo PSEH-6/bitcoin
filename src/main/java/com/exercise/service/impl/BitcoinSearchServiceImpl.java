@@ -15,8 +15,13 @@ import java.util.stream.Collectors;
 @Service
 public class BitcoinSearchServiceImpl implements BitcoinSearchService {
 
-    @Autowired
+
     private BitcoinDataService bitcoinDataService;
+
+    @Autowired
+    public BitcoinSearchServiceImpl(BitcoinDataService bitcoinDataService){
+        this.bitcoinDataService=bitcoinDataService;
+    }
 
     @Override
     public SearchResult search(String startDate, String endDate, String currency) {
